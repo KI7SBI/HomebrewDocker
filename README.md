@@ -81,9 +81,9 @@ Next step is to build a docker image. `docker build -t REPOSITORY:TAG`
 Notice how Docker reuses cached build images to build your second version in no time at all.
 
 	cd MMDVM-A
-	sudo docker build -t mmdvm:server-a
+	sudo docker build -t mmdvm:server-a . 
 	cd ../MMDVM-B
-	sudo docker build -t mmdvm:server-b
+	sudo docker build -t mmdvm:server-b . 
 	sudo docker run -d -p 50001:55555/udp mmdvm:server-a
 	sudo docker run -d -p 50002:55555/udp mmdvm:server-b
 
