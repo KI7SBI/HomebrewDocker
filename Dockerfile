@@ -3,7 +3,7 @@
 
 
 
-FROM	debian:jessy-slim
+FROM	debian:jessie-slim
 
 MAINTAINER	KI7SBI Dylan
 
@@ -12,11 +12,12 @@ RUN	wget -O /root/ipscbuild http://ip1.dx40.com/dmrlink/ipscbuild
 RUN	chmod 755 /root/ipscbuild
 RUN	/root/ipscbuild
 #RUN	mkdir -p /var/log/supervisor
-COPY	hb-ipsc-supervise.conf /etc/supervisor/conf.d/hb-ipsc-supervise.conf
+#COPY	hb-ipsc-supervise.conf /etc/supervisor/conf.d/hb-ipsc-supervise.conf
+COPY	supervisord.conf /etc/supervisor/supervisord.conf
 COPY	hblink.cfg /opt/hblink/hblink.cfg
 COPY	HB_Bridge.cfg /opt/hblink/HB_Bridge.cfg
-COPY	dmrlink.cfg /top/dmrlink/bridge/dmrlink.cfg
-COPY	IPSC_Bridge.cfg /top/dmrlink/bridge/ISPC_Bridge.cfg
+COPY	dmrlink.cfg /opt/dmrlink/bridge/dmrlink.cfg
+COPY	IPSC_Bridge.cfg /opt/dmrlink/bridge/ISPC_Bridge.cfg
 
 
 
