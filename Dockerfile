@@ -21,7 +21,7 @@ COPY	IPSC_Bridge.cfg /opt/dmrlink/bridge/ISPC_Bridge.cfg
 
 
 
-EXPOSE	55555
+EXPOSE	55555/udp
 
 
 CMD	["/usr/bin/supervisord"]
