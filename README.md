@@ -92,4 +92,16 @@ From the outside, clients can connect to MMDVM servers on 50001 or 50002.
 
 
 ## Accessing log files written by hblink and dmrlink
-Haven't built that in yet, but you can do it with Docker. One solution might be to mount a host folder from within the container, and write the log files there. Logs are in /tmp/hblink.log and /tmp/dmrlink.log. 
+Haven't built that in yet, but you can do it with Docker. One solution might be to mount a host folder from within the container, and write the log files there. Logs are in /tmp/hblink.log and /tmp/dmrlink.log. So, read a tutorial then try it.
+
+	https://www.digitalocean.com/community/tutorials/how-to-share-data-between-the-docker-container-and-the-host
+
+Kill your running containers. <container> can be id or name listed in the results of `docker ps`
+
+	sudo docker ps
+	sudo docker kill <container>
+
+Use a modified the `docker run -v <host path>:<path inside container>` command to bindmount a volume. 
+
+	sudo docker run -d -p 50001:22222/udp -v ~/MMDVM-A/Logs:/tmp IMAGE:TAG
+
