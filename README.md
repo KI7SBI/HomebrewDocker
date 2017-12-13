@@ -1,4 +1,4 @@
-Docker 
+Using Docker to Virtualize a MMDVM server and IPSC bridge
 ===============================
 
 This Dockerfile packages up some great code that other people wrote. 
