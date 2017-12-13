@@ -29,12 +29,12 @@ Anytime you edit these config files, you'll want to build a new image. Use a dif
 ### Dockerfile
 You probably do not need to edit this file, even if you want to run multiple instances. Nor do you need to edit this file to change the port clients use to connect to your MMDVM server.
 
-`EXPOSE 22222/udp` in Dockerfile, must match the port where your HB_Bridge master is listening, inside the container.
+`EXPOSE 22222/udp` in Dockerfile, must match the port where your MMDVM server (HB_Bridge master) is listening, inside the container.
 
 ### hblink.cfg
 Settings for your MMDVM Server go in this file. 
 
-To run a MMDVM server, specify a Master. Leave the port at 22222, clients will never see it. Remember port 22222 is inside the container. You can run multiple containers, where they all listen on 22222 inside their own containers.
+To run a MMDVM server, specify a Master. Leave the port at 22222, clients will never see it. Remember port 22222 is inside the container. You can run multiple containers, where they all listen on 22222 inside their own containers. The port number you use must be refelected in `Dockerfile`, set  `EXPOSE <port>/udp` to the same value.
 
 You'll get to choose what port clients will connect to, later, with `docker run -p <OUTSIDE-PORT>:22222/udp`.
 
@@ -83,13 +83,13 @@ And run the 2 images. `-d` daemonizes the host process, `-p` forwards an outside
 	sudo docker build -t mmdvm:server-a . 
 	cd ../MMDVM-B
 	sudo docker build -t mmdvm:server-b . 
-	sudo docker run -d -p 50001:55555/udp mmdvm:server-a
-	sudo docker run -d -p 50002:55555/udp mmdvm:server-b
+	sudo docker run -d -p 50001:22222/udp mmdvm:server-a
+	sudo docker run -d -p 50002:22222/udp mmdvm:server-b
 
 
 ## Connect your hotspot
 From the outside, clients can connect to MMDVM servers on 50001 or 50002.
 
 
-## Accessing log files from hblink and dmrlink
+## Accessing log files written by hblink and dmrlink
 Haven't built that in yet, but you can do it with Docker. One solution might be to mount a host folder from within the container, and write the log files there. Logs are in /tmp/hblink.log and /tmp/dmrlink.log. 
