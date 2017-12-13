@@ -2,8 +2,8 @@ Using Docker to Virtualize a MMDVM server and IPSC bridge
 ===============================
 
 This Dockerfile packages up some great code that other people wrote. 
-- IPSC_Bridge branch of dmrlink by N0MJS, https://github.com/n0mjs710/DMRlink
-- HB_Bridge branch of hblink by N0MJS, https://github.com/n0mjs710/HBlink
+- IPSC_Bridge branch of dmrlink by N0MJS, https://github.com/n0mjs710/DMRlink/tree/IPSC_Bridge
+- HB_Bridge branch of hblink by N0MJS, https://github.com/n0mjs710/HBlink/tree/HB_Bridge
 - ipscbuild by Vance w6ss@dx40.com
 - Debian Jessie-Slim, etc.
 
