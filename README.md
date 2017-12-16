@@ -79,10 +79,10 @@ These are the short steps to installing on Debian 8.
 	sudo apt-get update
 	sudo apt-get install docker-ce
 
-##now test, run the hello-world app
-sudo docker run hello-world
-##list what images exist
-sudo docker images
+And, test:
+
+	sudo docker run hello-world
+	sudo docker images
 
 ## Build and Run - MMDVM Server
 
