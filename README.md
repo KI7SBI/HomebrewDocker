@@ -67,7 +67,25 @@ Don't bother editing this one. Settings paired (inverted) from HB_Bridge.cfg. HB
 Supervisord is employed to run HB_Bridge and IPSC_Bridge, we tell Docker just to run Supervisor. No edits required here.
 
 
-## Build and Run
+## Install Docker
+Please follow install instructions for your distribution, https://docs.docker.com/engine/installation/#server
+
+These are the short steps to installing on Debian 8.
+
+	sudo apt-get update
+	sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+	curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
+	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") $(lsb_release -cs) stable"
+	sudo apt-get update
+	sudo apt-get install docker-ce
+
+##now test, run the hello-world app
+sudo docker run hello-world
+##list what images exist
+sudo docker images
+
+## Build and Run - MMDVM Server
+
 We're going to run two copies. We want different talkgroup decks A and B on separate HB servers. This implies two, different IPSC connections to two different cBridge managers.
 
 	git clone https://github.com/KI7SBI/HomebrewDocker.git MMDVM-A
